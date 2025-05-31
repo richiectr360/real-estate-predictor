@@ -8,14 +8,14 @@ app = FastAPI(
     title="House Price Prediction API",
     description=(
         "An API for predicting house prices based on various features. "
-        "This application is part of the MLOps Bootcamp by School of Devops. "
+        "A machine learning API for predicting house prices. "
         "Authored by Gourav Shah."
     ),
     version="1.0.0",
     contact={
-        "name": "School of Devops",
-        "url": "https://schoolofdevops.com",
-        "email": "learn@schoolofdevops.com",
+        "name": "Real Estate Predictor",
+        "url": "https://github.com/richiectr360/real-estate-predictor",
+        "email": "your.email@example.com",
     },
     license_info={
         "name": "Apache 2.0",
