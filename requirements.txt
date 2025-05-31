@@ -5,7 +5,7 @@ pandas==1.5.3          # Data manipulation and analysis — core for working wit
 numpy==1.24.3          # Numerical operations, arrays, and matrix support (used by almost all ML libraries)
 
 # ---------------------------------------------
-# 🧠 MACHINE LEARNING
+# 🤖 MACHINE LEARNING
 # ---------------------------------------------
 scikit-learn==1.2.2    # Classic ML models (regression, classification, clustering), preprocessing, model evaluation
 xgboost==1.7.5
@@ -19,11 +19,6 @@ seaborn==0.12.2        # High-level interface for drawing attractive and informa
 # 📦 EXPERIMENT TRACKING & MODEL MANAGEMENT
 # ---------------------------------------------
 mlflow==2.3.1          # End-to-end ML lifecycle tracking, including experiment tracking, model packaging, and deployment
-
-# ---------------------------------------------
-# ✅ TESTING
-# ---------------------------------------------
-pytest==7.3.1          # Python testing framework — great for writing unit tests for ML pipelines, data validation, etc.
 
 # ---------------------------------------------
 # ⚡ API DEVELOPMENT (FOR MODEL SERVING)
