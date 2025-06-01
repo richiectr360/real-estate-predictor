@@ -2,15 +2,33 @@ name: MLOps Pipeline
 
 on:
   workflow_dispatch:
+    inputs:
+      run_all:
+        description: 'Run all jobs'
+        required: false
+        default: 'true'
+      run_data_processing:
+        description: 'Run data processing job'
+        required: false
+        default: 'false'
+      run_model_training:
+        description: 'Run model training job'
+        required: false
+        default: 'false'
+      run_build_and_publish:
+        description: 'Run build and publish job'
+        required: false
+        default: 'false'
   push:
-    branches: [ main ]
-    tags: [ 'v*.*.*' ]
+    branches: [main]
+    tags: ["v*.*.*"]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   data-processing:
     runs-on: ubuntu-latest
+    if: github.event_name != 'workflow_dispatch' || inputs.run_all == 'true' || inputs.run_data_processing == 'true'
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -18,7 +36,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.11.9'
+          python-version: "3.11.9"
 
       - name: Install dependencies
         run: |
@@ -53,6 +71,7 @@ jobs:
   model-training:
     needs: data-processing
     runs-on: ubuntu-latest
+    if: github.event_name != 'workflow_dispatch' || inputs.run_all == 'true' || inputs.run_model_training == 'true'
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -60,7 +79,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.11.9'
+          python-version: "3.11.9"
 
       - name: Install dependencies
         run: |
@@ -112,6 +131,7 @@ jobs:
   build-and-publish:
     needs: model-training
     runs-on: ubuntu-latest
+    if: github.event_name != 'workflow_dispatch' || inputs.run_all == 'true' || inputs.run_build_and_publish == 'true'
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
