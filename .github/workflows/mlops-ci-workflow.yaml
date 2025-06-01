@@ -1,4 +1,4 @@
-name: MLOps CI 
+name: MLOps CI
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
   pull_request:
     branches:
-      - main  
+      - main
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'    
+          python-version: "3.11"
 
       - name: Install dependencies
         run: |
@@ -29,8 +29,16 @@ jobs:
       - name: Run tests
         run: |
           python -m pytest tests/
-        
-                
 
-      
-  
+      - name: Run Data Processing Tests
+        run: |
+          python src/data/run_processing.py \
+            --input data/raw/house_data.csv \
+          --output data/processed/cleaned_house_data.csv
+
+      - name: Do feature engineering
+        run: |
+          python src/features/engineer.py \
+            --input data/processed/cleaned_house_data.csv \
+            --output data/processed/featured_house_data.csv \
+            --preprocessor models/trained/preprocessor.pkl
