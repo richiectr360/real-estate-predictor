@@ -207,6 +207,20 @@ Be sure to replace `http://localhost:8000/predict` with actual endpoint based on
    - Created deployment configurations
    - Configured service networking
 
+6. **CI/CD Pipeline**
+
+   - Implemented GitHub Actions workflows for automated testing and deployment
+   - Created `mlops-pipeline.yaml` with three stages:
+     * Data Processing (55s): Preprocesses raw data and generates preprocessor artifact
+     * Model Training (1m 30s): Trains the model using processed data
+     * Build and Publish (1m 57s): Builds and publishes Docker images
+   - Pipeline produces three key artifacts:
+     * Preprocessor (1.63 KB): Data transformation pipeline
+     * Processed Data (1.58 KB): Clean, engineered dataset
+     * Trained Model (119 KB): Optimized prediction model
+   - Configured automated deployments to Kubernetes
+   - Implemented code quality checks and automated testing
+
 ## 📸 Application Screenshots
 
 ### Streamlit Web Interface
