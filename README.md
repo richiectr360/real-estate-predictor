@@ -2,6 +2,24 @@
 
 Welcome to the **House Price Predictor** project! This is a real-world, end-to-end machine learning application that predicts house prices based on various features.
 
+## 🎯 Problems Solved
+
+- **Accurate Price Prediction**: Uses machine learning to predict house prices based on features like size, location, and condition
+- **Data Quality**: Handles missing data, outliers, and inconsistencies in raw housing data
+- **Scalable Deployment**: Provides production-ready API and web interface for real-time predictions
+- **Model Tracking**: Ensures reproducibility and version control of ML experiments
+- **User-Friendly Interface**: Offers both API and web-based access for different user needs
+
+## 🔧 Tech Stack
+
+- **Machine Learning**: Python, scikit-learn, pandas, numpy
+- **Model Tracking**: MLflow with Docker containerization
+- **API Development**: FastAPI for high-performance REST API
+- **Web Interface**: Streamlit for interactive predictions
+- **Development Tools**: UV (package manager), Git, Docker/Podman
+- **Kubernetes**: Local development cluster with Kind
+- **Experiment Tools**: JupyterLab (optional)
+
 You'll start from raw data and move through data preprocessing, feature engineering, experimentation, model tracking with MLflow, and optionally using Jupyter for exploration – all while applying industry-grade tooling.
 
 ---
@@ -157,6 +175,44 @@ curl -X POST "http://localhost:8000/predict" \
 ```
 
 Be sure to replace `http://localhost:8000/predict` with actual endpoint based on where its running.
+
+## 🚀 Deployment Journey
+
+1. **Initial Setup & Development**
+
+   - Set up the development environment with Python 3.11 and UV package manager
+   - Created virtual environment and installed dependencies
+   - Implemented data processing and feature engineering pipelines
+
+2. **Model Development**
+
+   - Set up MLflow for experiment tracking using Docker
+   - Trained and evaluated multiple models
+   - Selected the best performing model for deployment
+
+3. **API Development**
+
+   - Built FastAPI service for model inference
+   - Containerized the API using Docker
+   - Implemented input validation and error handling
+
+4. **Frontend Development**
+
+   - Created interactive Streamlit web interface
+   - Containerized the frontend application
+   - Integrated with FastAPI backend
+
+5. **Container Orchestration**
+   - Set up local Kubernetes cluster using Kind
+   - Created deployment configurations
+   - Configured service networking
+
+## 📸 Application Screenshots
+
+### Streamlit Web Interface
+
+![Streamlit Interface 1](screenshots/1.png)
+![Streamlit Interface 2](screenshots/2.png)
 
 ## Contributing
 
